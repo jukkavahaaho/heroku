@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 // const port = 3000
+const port = process.env.PORT || 4000; // PORT must be in caps
 
 // cors - allow connection from different domains and ports
 app.use(cors())
@@ -65,4 +66,6 @@ app.delete('/todos/:id', async (request, response) => {
 //  console.log('Example app listening on port 3000')
 //})
 
-app.listen(process.env.PORT, '0.0.0.0');
+app.listen(port, () => {
+  console.info("Server started listening.");
+ });
