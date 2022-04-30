@@ -1,7 +1,7 @@
 const express = require('express') 
 const cors = require('cors')
 const app = express()
-const port = 3000
+// const port = 3000
 
 // cors - allow connection from different domains and ports
 app.use(cors())
@@ -61,6 +61,12 @@ app.delete('/todos/:id', async (request, response) => {
 })
 
 // app listen port 3000
-app.listen(port, () => {
-  console.log('Example app listening on port 3000')
-})
+//app.listen(port, () => {
+//  console.log('Example app listening on port 3000')
+//})
+
+var server_port = process.env.YOUR_PORT || process.env.PORT || 80;
+var server_host = process.env.YOUR_HOST || '0.0.0.0';
+server.listen(server_port, server_host, function() {
+    console.log('Listening on port %d', server_port);
+});
