@@ -2,8 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 // const port = 3000
-const argv = require('yargs').argv;
-const port = argv.port || 8081;
+const PORT = process.env.PORT || 4000
 
 // cors - allow connection from different domains and ports
 app.use(cors())
@@ -67,6 +66,6 @@ app.delete('/todos/:id', async (request, response) => {
 //  console.log('Example app listening on port 3000')
 //})
 
-app.listen(argv.port, ()=>{
-  console.log('Probably listening to heroku $PORT now ', argv.port); // unless $PORT is undefined, in which case you're listening to 8081.
-});
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`)
+})
